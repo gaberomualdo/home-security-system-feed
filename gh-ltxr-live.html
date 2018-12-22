@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home Security System Live Feed</title>
+  <link rel="shortcut icon" href="icon.png">
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    padding: 3.25rem;
+  }
+  div.container {
+    width: 100%;
+    display: block;
+    overflow: auto;
+    box-sizing: border-box;
+    height: calc(100vh - 6.5rem);
+    overflow: hidden;
+    padding: calc((100vh - 6.5rem - 600px) / 2) 0;
+    text-align: center;
+  }
+  div.container > img {
+    width: auto;
+    height: 600px;
+    display: inline-block;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+  </div>
+  <script id="test" src="http://192.168.1.98:8000/data.js"></script>
+  <script>
+  var amount = parseInt(amountData);
+  document.querySelector("div.container").innerHTML = "<img src='http://192.168.1.98:8000/images/img_" + amount + ".jpeg'>";
+  window.onload = function(){
+    setTimeout(function(){
+      location.reload();
+    },500);
+  }
+  </script>
+</body>
+</html>
